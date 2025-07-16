@@ -1,0 +1,13 @@
+lightning:
+  callbacks:
+    image_logger:
+      target: main.ImageLogger
+      params:
+        batch_frequency: 1000
+        max_images: 4
+        increase_log_steps: true
+  trainer:
+    benchmark: true
+    accumulate_grad_batches: 2
+    accelerator: ddp
+    gpus: 0,1,2,3

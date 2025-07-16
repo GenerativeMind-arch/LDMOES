@@ -1,0 +1,12 @@
+.vscode
+__pycache__/
+*.ckpt
+exp*/
+a.py
+*pkl
+<<<<<<< HEAD
+*pth
+resized_cele/
+=======
+*pth
+>>>>>>> 816c08572d448406a17dd987588daf640da08bdf

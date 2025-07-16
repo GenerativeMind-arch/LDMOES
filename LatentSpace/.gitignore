@@ -1,0 +1,15 @@
+logs/
+latent_diffusion.egg-info/
+taming-transformers-master/
+src/
+assets/
+models/ldm
+models/first_stage_models
+super_ckpt/
+final_ckpt/
+*lmdb
+data/lsun/churches
+data/celebahq
+ckpt/
+*.txt
+*.pyc

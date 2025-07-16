@@ -1,0 +1,72 @@
+data:
+    dataset: "CELEBA_HQ"
+    image_size: 256
+    channels: 3
+    logit_transform: false
+    uniform_dequantization: false
+    gaussian_dequantization: false
+    random_flip: true
+    rescaled: true
+    num_workers: 8
+
+
+model:
+    type: "simple"
+    in_channels: 3
+    out_ch: 3
+    ch: 192
+    ch_mult: [1,2,2,4,4]        #[1, 2, 4, 8, 8]                     #[1, 2, 2, 2, 4]
+    num_res_blocks: 2
+    attn_resolutions: [4,2]
+    dropout: 0.1
+    var_type: fixedlarge
+    ema_rate: 0.9999
+    ema: True
+    resamp_with_conv: True
+
+
+diffusion:
+    beta_schedule: linear
+    beta_start: 0.0001
+    beta_end: 0.02
+    num_diffusion_timesteps: 1000
+
+
+retraining:
+    batch_size: 32
+    n_epochs: 1000
+    n_iters: 200000
+    snapshot_freq: 5000
+    validation_freq: 10000
+    alpha_step: 15000
+    alpha_scale: 1
+    grad_acc_steps: 1
+
+
+sampling:
+    batch_size: 128
+    last_only: True
+    ckpt_id: 100000
+    total_num: 30000
+
+
+optim:
+    weight_decay: 0.000
+    optimizer: "Adam"
+    lr: 0.0001
+    beta1: 0.9
+    amsgrad: false
+    eps: 0.00000001
+    grad_clip: 1.0
+
+
+nas_search:
+    ckpt_id: 139920
+    batch_size: 128
+    test_num: 2
+
+
+nas_training:
+    epoch: 10
+    batch_size: 128
+
